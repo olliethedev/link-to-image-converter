@@ -3,17 +3,16 @@ const { getScreenshot } = require("./screenshotHelper");
 const app = express();
 const port = process.env.PORT || 5001;
 
-app.get("/", async (req, res) => {
-  console.log("get /");
+app.get("/", (req, res) => {
   const {url} = req.query;
-  try {
-    const buffer = await getScreenshot(url);
-    res.set("Content-Type", "image");
-    res.send(buffer);
-  } catch (error) {
-    console.log(error);
-    res.code(500).send(error);
-  }
+  console.log({url});
+  getScreenshot(url).then(imageBuffer => {
+    res.set('Content-Type', 'image/jpeg');
+    res.send(imageBuffer);
+}).catch(err => {
+    console.log(err);
+    res.status(500).send(err);
+})
 });
 
 app.listen(port, () => {
