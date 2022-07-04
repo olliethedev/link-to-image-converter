@@ -11,7 +11,7 @@ module.exports.getScreenshot = async (url) => {
     });
     const page = await browser.newPage();
     await page.goto(
-        `${ url }`,
+        url,
         {
             waitUntil: 'networkidle0',
         }
@@ -22,5 +22,6 @@ module.exports.getScreenshot = async (url) => {
         quality: 100,
         captureBeyondViewport: true
     });
+    await browser.close();
     return imageBuffer;
 }
