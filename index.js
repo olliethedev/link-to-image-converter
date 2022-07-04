@@ -4,15 +4,17 @@ const app = express();
 const port = process.env.PORT || 5001;
 
 app.get("/", (req, res) => {
-  const {url} = req.query;
-  console.log({url});
-  getScreenshot(url).then(imageBuffer => {
-    res.set('Content-Type', 'image/jpeg');
-    res.send(imageBuffer);
-}).catch(err => {
-    console.log({err});
-    res.status(500).send(err);
-})
+  const { url } = req.query;
+  console.log({ url });
+  getScreenshot(url)
+    .then((imageBuffer) => {
+      res.set("Content-Type", "image/jpeg");
+      res.send(imageBuffer);
+    })
+    .catch((err) => {
+      console.log({ err });
+      res.status(500).send(err);
+    });
 });
 
 app.listen(port, () => {
