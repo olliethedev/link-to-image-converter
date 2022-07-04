@@ -10,7 +10,7 @@ app.get("/", (req, res) => {
     res.set('Content-Type', 'image/jpeg');
     res.send(imageBuffer);
 }).catch(err => {
-    console.log(err);
+    console.log({err});
     res.status(500).send(err);
 })
 });
