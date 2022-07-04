@@ -1,7 +1,9 @@
+require('dotenv').config()
 const express = require("express");
 const { getScreenshot } = require("./screenshotHelper");
 const app = express();
 const port = process.env.PORT || 5001;
+console.log(process.env)
 
 app.get("/", (req, res) => {
   const { url } = req.query;

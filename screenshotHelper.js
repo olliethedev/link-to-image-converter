@@ -2,6 +2,10 @@ const chromium = require('chrome-aws-lambda');
 const puppeteer = require('puppeteer-core');
 
 module.exports.getScreenshot = async (url) => {
+    console.log(chromium.args);
+    console.log(chromium.defaultViewport);
+    console.log(await chromium.executablePath);
+    console.log(chromium.headless);
     const browser = await puppeteer.launch({
         args: chromium.args,
         defaultViewport: chromium.defaultViewport,
