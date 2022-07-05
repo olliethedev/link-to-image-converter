@@ -11,7 +11,7 @@ app.get("/", (req, res) => {
   getScreenshot(url)
     .then((imageBuffer) => {
       res.set("Content-Type", "image/jpeg");
-      res.send(imageBuffer);
+      res.status(200).send(imageBuffer);
     })
     .catch((err) => {
       console.log({ err });
