@@ -2,15 +2,11 @@
   "name": "link-to-image-converter",
   "version": "1.0.0",
   "description": "",
-  "engines": {
-    "node": "8.x"
-  },
   "main": "index.js",
   "scripts": {
     "start": "node index.js"
   },
   "dependencies": {
-    "chrome-aws-lambda": "^10.0.0",
     "dotenv": "^16.0.1",
     "express": "^4.15.2",
     "puppeteer-core": "^10.0.0"
